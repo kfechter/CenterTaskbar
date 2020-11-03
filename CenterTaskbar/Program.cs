@@ -315,6 +315,12 @@ namespace CenterTaskbar
         {
             Debug.WriteLine("Begin Reposition Calculation");
 
+            if(_children.Count == 0)
+            {
+                Debug.WriteLine("No Children in dictionary, aborting");
+                return true;
+            }
+
             var taskList = _children[trayWnd];
             var last = TreeWalker.ControlViewWalker.GetLastChild(taskList);
             if (last == null)
